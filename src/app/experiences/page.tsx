@@ -6,11 +6,14 @@ import ExperienceCard from "@/components/ExperienceCard";
 import SearchBar from "@/components/SearchBar";
 import FilterBar from "@/components/FilterBar";
 import { experiences } from "@/data/experiences";
+import { useAppState } from "@/components/AppState";
+import { useExperiences } from "@/hooks/useExperiences";
 
 export default function ExperiencesPage() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const { toggleFavorite, isFavorite } = useAppState();
 
   const [search, setSearch] = useState(searchParams.get("search") || "");
   const [category, setCategory] = useState(searchParams.get("category") || "");
@@ -30,17 +33,11 @@ export default function ExperiencesPage() {
     router.push(queryString ? `${pathname}?${queryString}` : pathname);
   }, [search, category, destination, pathname, router]);
 
-  const filteredExperiences = experiences.filter((experience) => {
-    const matchesSearch = new RegExp(search, "i").test(experience.title);
-
-    const matchesCategory =
-      category === "" || experience.category === category;
-
-    const matchesDestination =
-      destination === "" ||
-      experience.destination.toLowerCase().includes(destination.toLowerCase());
-
-    return matchesSearch && matchesCategory && matchesDestination;
+  const { filteredExperiences } = useExperiences({
+    experiences,
+    search,
+    category,
+    destination,
   });
 
   return (
@@ -63,7 +60,12 @@ export default function ExperiencesPage() {
       ) : (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredExperiences.map((experience) => (
-            <ExperienceCard key={experience.id} experience={experience} />
+            <ExperienceCard
+              key={experience.id}
+              experience={experience}
+              isFavorite={isFavorite(experience.id)}
+              onToggleFavorite={toggleFavorite}
+            />
           ))}
         </div>
       )}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import AppState from "@/components/AppState";
 
 export const metadata: Metadata = {
   title: "Wanderlust Explorer",
@@ -15,8 +16,10 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body>
-        <Navbar />
-        {children}
+        <AppState>
+          <Navbar />
+          {children}
+        </AppState>
       </body>
     </html>
   );
