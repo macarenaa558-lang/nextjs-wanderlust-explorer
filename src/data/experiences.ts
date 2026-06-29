@@ -129,7 +129,7 @@ export const experiences: Experience[] = [
     destination: "Wadi Rum, Jordania",
     price: 160,
     rating: 4.6,
-    imageUrl: "https://loremflickr.com/900/700/4x4,desert,jordan?lock=13",
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/4x4_vehicles_at_Wadi_Rum_%2812464618685%29.jpg/960px-4x4_vehicles_at_Wadi_Rum_%2812464618685%29.jpg",
   },
   {
     id: 14,
@@ -139,7 +139,7 @@ export const experiences: Experience[] = [
     destination: "Madeira, Portugal",
     price: 190,
     rating: 4.7,
-    imageUrl: "https://loremflickr.com/900/700/canyoning,waterfall,madeira?lock=14",
+    imageUrl: "https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=900&q=80",
   },
   {
     id: 15,
@@ -159,7 +159,7 @@ export const experiences: Experience[] = [
     destination: "Bali, Indonesia",
     price: 120,
     rating: 4.6,
-    imageUrl: "https://loremflickr.com/900/700/surf,beach,bali?lock=16",
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/ULUWATU_SURF_BALI.jpg/960px-ULUWATU_SURF_BALI.jpg",
   },
   {
     id: 17,
@@ -169,7 +169,7 @@ export const experiences: Experience[] = [
     destination: "Bariloche, Argentina",
     price: 135,
     rating: 4.5,
-    imageUrl: "https://loremflickr.com/900/700/horseback,patagonia,steppe?lock=17",
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Mustering_sheep_in_Patagonia.jpg/960px-Mustering_sheep_in_Patagonia.jpg",
   },
   {
     id: 18,
@@ -229,7 +229,7 @@ export const experiences: Experience[] = [
     destination: "Mendoza, Argentina",
     price: 165,
     rating: 4.9,
-    imageUrl: "https://loremflickr.com/900/700/wine,vineyard,mendoza?lock=23",
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/96/Algodon_Wine_Estates_vineyards.jpg",
   },
   {
     id: 24,
@@ -249,7 +249,7 @@ export const experiences: Experience[] = [
     destination: "Oaxaca, México",
     price: 84,
     rating: 4.6,
-    imageUrl: "https://loremflickr.com/900/700/chocolate,artisan,cacao?lock=25",
+    imageUrl: "https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=900&q=80",
   },
   {
     id: 26,
@@ -399,7 +399,7 @@ export const experiences: Experience[] = [
     destination: "París, Francia",
     price: 118,
     rating: 4.9,
-    imageUrl: "https://loremflickr.com/900/700/pastry,french-dessert,paris?lock=40",
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Odette%2C_77_Rue_Galande%2C_75005_Paris%2C_May_2015.jpg/960px-Odette%2C_77_Rue_Galande%2C_75005_Paris%2C_May_2015.jpg",
   },
   {
     id: 41,
@@ -499,7 +499,7 @@ export const experiences: Experience[] = [
     destination: "Whistler, Canadá",
     price: 88,
     rating: 4.5,
-    imageUrl: "https://loremflickr.com/900/700/forest-walk,pines,canada?lock=50",
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Pine_Point_Trail%2C_Whiteshell_Provincial_Park%2C_Manitoba_%28492584%29_%289501066300%29.jpg/960px-Pine_Point_Trail%2C_Whiteshell_Provincial_Park%2C_Manitoba_%28492584%29_%289501066300%29.jpg",
   },
   {
     id: 51,
@@ -529,7 +529,7 @@ export const experiences: Experience[] = [
     destination: "Kerala, India",
     price: 210,
     rating: 4.8,
-    imageUrl: "https://loremflickr.com/900/700/ayurveda,india,wellness?lock=53",
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Elephant_pass_ayurveda_and_yoga_retreat_kerala_Ayurveda_resort_kerala.jpg",
   },
   {
     id: 54,
@@ -539,7 +539,7 @@ export const experiences: Experience[] = [
     destination: "Sídney, Australia",
     price: 74,
     rating: 4.4,
-    imageUrl: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80",
   },
   {
     id: 55,
@@ -549,7 +549,7 @@ export const experiences: Experience[] = [
     destination: "Kioto, Japón",
     price: 68,
     rating: 4.5,
-    imageUrl: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=900&q=80",
   },
   {
     id: 56,
@@ -569,7 +569,7 @@ export const experiences: Experience[] = [
     destination: "Yakushima, Japón",
     price: 98,
     rating: 4.7,
-    imageUrl: "https://loremflickr.com/900/700/forest-bathing,japan,cedar?lock=57",
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Forest_covered_hills_on_Yakushima.jpg/960px-Forest_covered_hills_on_Yakushima.jpg",
   },
   {
     id: 58,
@@ -579,7 +579,7 @@ export const experiences: Experience[] = [
     destination: "La Rioja, España",
     price: 145,
     rating: 4.6,
-    imageUrl: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=900&q=80",
   },
   {
     id: 59,
@@ -589,7 +589,7 @@ export const experiences: Experience[] = [
     destination: "Ciudad del Cabo, Sudáfrica",
     price: 55,
     rating: 4.3,
-    imageUrl: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80",
   },
   {
     id: 60,
@@ -599,7 +599,7 @@ export const experiences: Experience[] = [
     destination: "Joshua Tree, Estados Unidos",
     price: 102,
     rating: 4.6,
-    imageUrl: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80",
   },
   {
     id: 61,

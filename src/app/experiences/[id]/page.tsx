@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { experiences } from "@/data/experiences";
 
 interface ExperienceDetailPageProps {
@@ -35,9 +36,12 @@ export default async function ExperienceDetailPage({
         ← Volver a experiencias
       </Link>
 
-      <img
+      <Image
         src={experience.imageUrl}
         alt={experience.title}
+        width={1200}
+        height={700}
+        unoptimized
         className="w-full h-80 object-cover rounded-xl mt-6 mb-8"
       />
 

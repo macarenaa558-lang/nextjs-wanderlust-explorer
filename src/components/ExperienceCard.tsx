@@ -1,4 +1,8 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Experience } from "@/types/experience";
 
 const fallbackImageByCategory = {
@@ -25,6 +29,10 @@ const ExperienceCard = ({
   isFavorite = false,
   onToggleFavorite,
 }: ExperienceCardProps) => {
+  const [hasImageError, setHasImageError] = useState(false);
+  const fallbackSrc = fallbackImageByCategory[experience.category];
+  const imageSrc = hasImageError ? fallbackSrc : experience.imageUrl;
+
   return (
     <article className="border rounded-xl overflow-hidden shadow-sm hover:shadow-md transition bg-white relative">
       <button
@@ -40,16 +48,16 @@ const ExperienceCard = ({
       </button>
 
       <Link href={`/experiences/${experience.id}`}>
-        <img
-          src={experience.imageUrl}
+        <Image
+          src={imageSrc}
           alt={experience.title}
+          width={900}
+          height={700}
+          unoptimized
           className="h-48 w-full object-cover"
-          onError={(event) => {
-            const image = event.currentTarget;
-            const fallbackSrc = fallbackImageByCategory[experience.category];
-
-            if (image.src !== fallbackSrc) {
-              image.src = fallbackSrc;
+          onError={() => {
+            if (!hasImageError) {
+              setHasImageError(true);
             }
           }}
         />

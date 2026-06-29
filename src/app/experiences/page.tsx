@@ -42,7 +42,12 @@ export default function ExperiencesPage() {
 
   return (
     <main className="max-w-7xl mx-auto px-6 py-10">
-      <h1 className="text-4xl font-bold mb-8">Explora experiencias</h1>
+      <div className="mb-8">
+        <h1 className="text-4xl font-bold text-slate-900">Explora experiencias</h1>
+        <p className="mt-2 text-slate-600">
+          Filtra por categoría y destino para encontrar la experiencia ideal.
+        </p>
+      </div>
 
       <SearchBar value={search} onChange={setSearch} />
 

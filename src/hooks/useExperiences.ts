@@ -1,5 +1,9 @@
 import { Experience } from "@/types/experience";
 
+function escapeRegex(value: string) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
 interface UseExperiencesProps {
   experiences: Experience[];
   search: string;
@@ -13,8 +17,10 @@ export function useExperiences({
   category,
   destination,
 }: UseExperiencesProps) {
+  const safeSearchRegex = new RegExp(escapeRegex(search), "i");
+
   const filteredExperiences = experiences.filter((experience) => {
-    const matchesSearch = new RegExp(search, "i").test(experience.title);
+    const matchesSearch = safeSearchRegex.test(experience.title);
 
     const matchesCategory =
       category === "" || experience.category === category;

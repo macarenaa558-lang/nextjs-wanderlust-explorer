@@ -1,4 +1,4 @@
-# Referencias de Diseño
+# Design References
 
 Antes de comenzar el desarrollo del proyecto, analicé distintas interfaces reales para definir el estilo visual y la experiencia de usuario que quería lograr. Estas aplicaciones sirvieron como inspiración para el diseño de la interfaz, la organización del contenido y la navegación.
 
