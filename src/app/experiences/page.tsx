@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import ExperienceCard from "@/components/ExperienceCard";
 import SearchBar from "@/components/SearchBar";
@@ -9,7 +9,7 @@ import { experiences } from "@/data/experiences";
 import { useAppState } from "@/components/AppState";
 import { useExperiences } from "@/hooks/useExperiences";
 
-export default function ExperiencesPage() {
+function ExperiencesContent() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -22,16 +22,23 @@ export default function ExperiencesPage() {
   );
 
   useEffect(() => {
-    const params = new URLSearchParams();
+    const timeoutId = setTimeout(() => {
+      const params = new URLSearchParams();
 
-    if (search) params.set("search", search);
-    if (category) params.set("category", category);
-    if (destination) params.set("destination", destination);
+      if (search) params.set("search", search);
+      if (category) params.set("category", category);
+      if (destination) params.set("destination", destination);
 
-    const queryString = params.toString();
+      const nextQuery = params.toString();
+      const currentQuery = searchParams.toString();
 
-    router.push(queryString ? `${pathname}?${queryString}` : pathname);
-  }, [search, category, destination, pathname, router]);
+      if (nextQuery !== currentQuery) {
+        router.replace(nextQuery ? `${pathname}?${nextQuery}` : pathname);
+      }
+    }, 250);
+
+    return () => clearTimeout(timeoutId);
+  }, [search, category, destination, pathname, router, searchParams]);
 
   const { filteredExperiences } = useExperiences({
     experiences,
@@ -75,5 +82,13 @@ export default function ExperiencesPage() {
         </div>
       )}
     </main>
+  );
+}
+
+export default function ExperiencesPage() {
+  return (
+    <Suspense fallback={<main className="max-w-7xl mx-auto px-6 py-10">Cargando experiencias...</main>}>
+      <ExperiencesContent />
+    </Suspense>
   );
 }

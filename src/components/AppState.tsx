@@ -1,11 +1,13 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useMemo, useState } from "react";
 import { Experience } from "@/types/experience";
+import { experiences } from "@/data/experiences";
 
 interface AppStateContextType {
+  favoriteIds: number[];
   favorites: Experience[];
-  toggleFavorite: (experience: Experience) => void;
+  toggleFavorite: (id: number) => void;
   isFavorite: (id: number) => boolean;
 }
 
@@ -14,29 +16,32 @@ const AppStateContext = createContext<AppStateContextType | undefined>(
 );
 
 export default function AppState({ children }: { children: React.ReactNode }) {
-  const [favorites, setFavorites] = useState<Experience[]>([]);
+  const [favoriteIds, setFavoriteIds] = useState<number[]>([]);
 
-  const toggleFavorite = (experience: Experience) => {
-    setFavorites((currentFavorites) => {
-      const alreadyFavorite = currentFavorites.some(
-        (item) => item.id === experience.id
-      );
+  const toggleFavorite = (id: number) => {
+    setFavoriteIds((currentFavoriteIds) => {
+      const alreadyFavorite = currentFavoriteIds.includes(id);
 
       if (alreadyFavorite) {
-        return currentFavorites.filter((item) => item.id !== experience.id);
+        return currentFavoriteIds.filter((favoriteId) => favoriteId !== id);
       }
 
-      return [...currentFavorites, experience];
+      return [...currentFavoriteIds, id];
     });
   };
 
+  const favorites = useMemo(() => {
+    const favoriteIdsSet = new Set(favoriteIds);
+    return experiences.filter((experience) => favoriteIdsSet.has(experience.id));
+  }, [favoriteIds]);
+
   const isFavorite = (id: number) => {
-    return favorites.some((experience) => experience.id === id);
+    return favoriteIds.includes(id);
   };
 
   return (
     <AppStateContext.Provider
-      value={{ favorites, toggleFavorite, isFavorite }}
+      value={{ favoriteIds, favorites, toggleFavorite, isFavorite }}
     >
       {children}
     </AppStateContext.Provider>

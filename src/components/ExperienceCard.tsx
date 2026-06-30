@@ -21,7 +21,7 @@ const fallbackImageByCategory = {
 interface ExperienceCardProps {
   experience: Experience;
   isFavorite?: boolean;
-  onToggleFavorite?: (experience: Experience) => void;
+  onToggleFavorite?: (id: number) => void;
 }
 
 const ExperienceCard = ({
@@ -39,7 +39,7 @@ const ExperienceCard = ({
         type="button"
         onClick={(event) => {
           event.preventDefault();
-          onToggleFavorite?.(experience);
+          onToggleFavorite?.(experience.id);
         }}
         className="absolute top-3 right-3 bg-white rounded-full w-10 h-10 shadow flex items-center justify-center text-xl"
         aria-label="Agregar a favoritos"
